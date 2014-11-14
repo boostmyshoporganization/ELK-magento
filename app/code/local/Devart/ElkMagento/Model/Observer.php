@@ -22,7 +22,7 @@ class Devart_ElkMagento_Model_Observer
         $time   = round(microtime(true) - $this->startTime, 2);
         $memory = memory_get_usage(true) - $this->startMemory;
 
-        $message = Mage::getDesign()->getArea() . ' | ' . $action . ' | ' . $time . ' | ' . $memory;
+        $message =  'magento | ' . $action . ' | ' . $time . ' | ' . $memory;
 
         Mage::log($message, null, self::LOG_FILE);
     }
