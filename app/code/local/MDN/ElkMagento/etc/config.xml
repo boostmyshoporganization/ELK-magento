@@ -2,35 +2,35 @@
 <config>
 
     <modules>
-        <Devart_ElkMagento>
+        <MDN_ElkMagento>
             <version>0.0.1</version>
-        </Devart_ElkMagento>
+        </MDN_ElkMagento>
     </modules>
 
     <global>
         <models>
-            <devart_elkmagento>
-                <class>Devart_ElkMagento_Model</class>
-            </devart_elkmagento>
+            <MDN_elkmagento>
+                <class>MDN_ElkMagento_Model</class>
+            </MDN_elkmagento>
 
         </models>
         <events>
             <controller_action_predispatch>
                 <observers>
-                    <devart_elkmagento>
-                        <class>devart_elkmagento/observer</class>
+                    <MDN_elkmagento>
+                        <class>MDN_elkmagento/observer</class>
                         <method>predispatch</method>
                         <type>singleton</type>
-                    </devart_elkmagento>
+                    </MDN_elkmagento>
                 </observers>
             </controller_action_predispatch>
             <controller_action_postdispatch>
                 <observers>
-                    <devart_elkmagento>
-                        <class>devart_elkmagento/observer</class>
+                    <MDN_elkmagento>
+                        <class>MDN_elkmagento/observer</class>
                         <method>postdispatch</method>
                         <type>singleton</type>
-                    </devart_elkmagento>
+                    </MDN_elkmagento>
                 </observers>
             </controller_action_postdispatch>
         </events>

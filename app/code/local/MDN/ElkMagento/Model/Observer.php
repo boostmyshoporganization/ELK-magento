@@ -1,6 +1,6 @@
 <?php
 
-class Devart_ElkMagento_Model_Observer
+class MDN_ElkMagento_Model_Observer
 {
     
     const LOG_FILE = 'elk-magento.log';
@@ -18,12 +18,13 @@ class Devart_ElkMagento_Model_Observer
     {
         $event = $observer->getEvent();
 
+        $method = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'cli';
         $action = $event->getControllerAction()->getFullActionName();
         $time   = round(microtime(true) - $this->startTime, 2);
         $memory = memory_get_usage(true) - $this->startMemory;
 
-        $message =  'magento | ' . $action . ' | ' . $time . ' | ' . $memory;
+        $message = '['.date('c').'] magento | ' . $method . ' | ' . $action . ' | ' . $time . ' | ' . $memory."\n";
 
-        Mage::log($message, null, self::LOG_FILE);
+        file_put_contents(Mage::getBaseDir('log').'/'.self::LOG_FILE, $message, FILE_APPEND);
     }
 }
